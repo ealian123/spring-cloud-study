@@ -1,20 +1,23 @@
 spring:
   application:
     name: auth-server
+
   datasource:
-    url: jdbc:mysql://localhost:3306/spring_cloud?characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: P@ssw0rd
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://yjhtest1.mysql.polardb.rds.aliyuncs.com/test?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: yjhuser
+    password: Yjh123Password
     hikari:
       connection-timeout: 30000
       idle-timeout: 600000
       max-lifetime: 1800000
       maximum-pool-size: 9
+
   redis:
+    host: r-2ze3vf7vdvw0ics2j9pd.redis.rds.aliyuncs.com
+    port: 6379
+    password: Redispassword123
     database: 2
-    host: localhost
-    port: 32768
-    password: 1qaz@WSX
     jedis:
       pool:
         max-active: 8

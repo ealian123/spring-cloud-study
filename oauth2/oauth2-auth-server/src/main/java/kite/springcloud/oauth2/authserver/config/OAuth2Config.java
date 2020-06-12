@@ -69,10 +69,11 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
          * jwt 增强模式
          */
         TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
-        List<TokenEnhancer> enhancerList = new ArrayList<>();
-        enhancerList.add(jwtTokenEnhancer);
-        enhancerList.add(jwtAccessTokenConverter);
+            List<TokenEnhancer> enhancerList = new ArrayList<>();
+            enhancerList.add(jwtTokenEnhancer);
+            enhancerList.add(jwtAccessTokenConverter);
         enhancerChain.setTokenEnhancers(enhancerList);
+
         endpoints.tokenStore(jwtTokenStore)
                 .userDetailsService(kiteUserDetailsService)
                 /**
@@ -95,6 +96,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource);
 
+        //基于内存的
 //        clients.inMemory()
 //                .withClient("order-client")
 //                .secret(passwordEncoder.encode("order-secret-8888"))
